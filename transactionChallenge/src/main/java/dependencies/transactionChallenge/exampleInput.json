@@ -1,0 +1,17 @@
+{ "eventType" : "deposit", "depositId" :"1", "customerId" : "Cust1", "time" : "2021-01-01T09:00:00Z", "amount" : 500 }
+{ "eventType" : "transaction","transactionId" : "1", "customerId" : "Cust1", "merchantId" : "Merch1", "time" : "2021-01-01T10:00:00Z", "amount" : 10 }
+{ "eventType" : "transaction","transactionId" : "2", "customerId" : "Cust1", "merchantId" : "Merch1", "time" : "2021-01-02T11:00:00Z", "amount" : 20 }
+{ "eventType" : "deposit", "depositId" :"2", "customerId" : "Cust2", "time" : "2021-01-02T11:30:00Z", "amount" : 100 }
+{ "eventType" : "deposit", "depositId" :"3", "customerId" : "Cust3", "time" : "2021-01-02T11:30:00Z", "amount" : 200 }
+{ "eventType" : "deposit", "depositId" :"4", "customerId" : "Cust4", "time" : "2021-01-02T11:30:00Z", "amount" : 50 }
+{ "eventType" : "transaction","transactionId" : "3", "customerId" : "Cust2", "merchantId" : "Merch1", "time" : "2021-01-03T12:00:00Z", "amount" : 40 }
+{ "eventType" : "transaction","transactionId" : "4", "customerId" : "Cust3", "merchantId" : "Merch1", "time" : "2021-01-04T13:00:00Z", "amount" : 5 }
+{ "eventType" : "deposit", "depositId" :"5", "customerId" : "Cust5", "time" : "2021-01-06T14:00:00Z", "amount" : 60 }
+{ "eventType" : "deposit", "depositId" :"6", "customerId" : "Cust6", "time" : "2021-01-07T14:00:00Z", "amount" : 5 }
+{ "eventType" : "transaction","transactionId" : "5", "customerId" : "Cust4", "merchantId" : "Merch1", "time" : "2021-02-05T15:00:00Z", "amount" : 30 }
+{ "eventType" : "transaction","transactionId" : "6", "customerId" : "Cust5", "merchantId" : "Merch2", "time" : "2021-02-06T16:00:00Z", "amount" : 60 }
+{ "eventType" : "transaction","transactionId" : "7", "customerId" : "Cust6", "merchantId" : "Merch2", "time" : "2021-03-07T17:00:00Z", "amount" : 90 }
+{ "eventType" : "deposit", "depositId" :"7", "customerId" : "Cust7", "time" : "2021-03-07T19:00:00Z", "amount" : 30 }
+{ "eventType" : "transaction","transactionId" : "8", "customerId" : "Cust1", "merchantId" : "Merch1", "time" : "2021-03-08T18:00:00Z", "amount" : 200 }
+{ "eventType" : "deposit", "depositId" :"8", "customerId" : "Cust1", "time" : "2021-04-01T14:00:00Z", "amount" : 120 }
+{ "eventType" : "transaction","transactionId" : "9", "customerId" : "Cust6", "merchantId" : "Merch1", "time" : "2021-04-09T19:00:00Z", "amount" : 10 }
