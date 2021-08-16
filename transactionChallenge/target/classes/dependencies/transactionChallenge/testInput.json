@@ -1,0 +1,3 @@
+{ "eventType" : "deposit", "depositId" :"1", "customerId" : "Cust1", "time" : "2021-01-01T09:00:00Z", "amount" : 500 }
+{ "eventType" : "transaction","transactionId" : "1", "customerId" : "Cust1", "merchantId" : "Merch1", "time" : "2021-01-01T10:00:00Z", "amount" : 10 }
+{ "eventType" : "transaction","transactionId" : "2", "customerId" : "Cust1", "merchantId" : "Merch1", "time" : "2021-01-02T11:00:00Z", "amount" : 20 }

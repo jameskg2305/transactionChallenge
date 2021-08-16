@@ -24,15 +24,15 @@ public class transactionEvent {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		//System.out.println("f");
 		//First, read JSON, and instantiate transaction objects
-		createTransactionObjects();
+		events = createTransactionObjects(events, ".//src//main//java//dependencies//transactionChallenge//exampleInput.json");
 		
-		createCustomerObjectsAndMerchantObjects();
+		createCustomerObjectsAndMerchantObjects(customers, merchants);
 		
 		
-		findTransactionAverageAndRemainingBalance();
-		
+		customers = findTransactionAverageAndRemainingBalanceCust(customers, events);
+		merchants = findTransactionAverageAndRemainingBalanceMerch(merchants, events);
 		//Task1
 		displayHighestTransactionAverage("customer");
 		//Task2
@@ -50,7 +50,7 @@ public class transactionEvent {
 
 
 
-	private static void displayHighestRemainingBalance() {
+	static void displayHighestRemainingBalance() {
 		// TODO Auto-generated method stub
 		
 		customers.sort(Comparator.comparing(customer::getRemainingBalance).reversed());
@@ -67,7 +67,7 @@ public class transactionEvent {
 
 
 
-	private static void createCustomerObjectsAndMerchantObjects() {
+	static void createCustomerObjectsAndMerchantObjects(ArrayList<customer> customers, ArrayList<merchant> merchants) {
 		//This function also creates merchants
 		
 		// TODO Auto-generated method stub
@@ -89,7 +89,7 @@ public class transactionEvent {
 
 
 
-	private static boolean checkIfExists(String actorId, String actorType) {
+	static boolean checkIfExists(String actorId, String actorType) {
 		// TODO Auto-generated method stub
 		if(actorType.equals("customer")){
 			for(customer c: customers){
@@ -111,7 +111,7 @@ public class transactionEvent {
 
 
 
-	private static void findTransactionAverageAndRemainingBalance() {
+	static ArrayList<customer> findTransactionAverageAndRemainingBalanceCust(ArrayList<customer> customers, ArrayList<transaction> events) {
 		// TODO Auto-generated method stub
 		
 		//for each customer, find total amounts, then divide
@@ -132,10 +132,12 @@ public class transactionEvent {
 			}
 			customers.get(i).setAverageAmount(total/numberOfTransanctions);
 		}
-		
-		
-		
-		
+		return customers;
+	}
+	
+	
+	static ArrayList<merchant> findTransactionAverageAndRemainingBalanceMerch(ArrayList<merchant> merchants, ArrayList<transaction> events) {
+		// TODO Auto-generated method stub
 		//Same process for merchants, but not recording total balance
 		for(int i=0;i<merchants.size();i++){
 			int total = 0;
@@ -148,8 +150,8 @@ public class transactionEvent {
 			}
 			merchants.get(i).setAverageAmount(total/numberOfTransanctions);
 		}
+		return merchants;
 	}
-
 
 
 	private static void displayHighestTransactionAverage(String actorType) {
@@ -159,7 +161,6 @@ public class transactionEvent {
 			System.out.println(" ");
 			if(actorType.equals("merchant")){
 				System.out.print("Merchant");
-				
 				//hashlist to array
 				for(int i=0;i<merchants.size();i++){
 					actorList.add(merchants.get(i));
@@ -181,6 +182,7 @@ public class transactionEvent {
 				}
 				System.out.println(actorList.get(i).name+" with an average of "+ actorList.get(i).averageAmount+" per transaction");
 			}
+			
 		}
 		
 		
@@ -190,10 +192,10 @@ public class transactionEvent {
 
 
 
-	private static void createTransactionObjects() {
+	static ArrayList<transaction> createTransactionObjects(ArrayList<transaction> events, String fileName) {
 		// TODO Auto-generated method stub
 		JSONParser parser = new JSONParser();
-		String fileName = ".//src//main//java//dependencies//transactionChallenge//exampleInput.json";
+		
 
         //Use buffered reader to read line by line
 	    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -211,8 +213,7 @@ public class transactionEvent {
 				//Amount is set as a Long value, which is not appropriate, will convert later
 				Long amount = (Long) (jsonObject.get("amount"));
 					events.add(new transaction(
-							(String)jsonObject.get("eventType"), 
-							(String)jsonObject.get("depositId"),
+							(String)jsonObject.get("eventType"),
 							(String)jsonObject.get("customerId"), 
 							(String)jsonObject.get("merchantId"), 
 							(String)jsonObject.get("time"), 
@@ -223,6 +224,7 @@ public class transactionEvent {
 	    } catch (IOException e) {
 	        System.out.println(e.getMessage());
 	    }
+		return events;
 	}
 	
 	
